@@ -54,7 +54,8 @@ final class HomeViewController: UIViewController {
     //MARK: -Este es el ciclo de vida
     override func viewDidLoad() {
         super.viewDidLoad()
-//MARK: - Añadimos el redondeo a los botones, siempre añadiendo la extensión del botón especificando dicho efecto
+//MARK: - Funciones de los botones
+        //Añadimos el redondeo a los botones, siempre añadiendo la extensión del botón especificando dicho efecto
         number0.round()
         number1.round()
         number2.round()
@@ -114,9 +115,5 @@ final class HomeViewController: UIViewController {
         print(sender.tag)//cambiamos el sender  y le añadimos un print con .tag para que salga un tipo int
         sender.shine()
     }
-    
-    //Cambiamos el sender a UIButton y le añadimos la función sender.shine, de esta forma haremos que brille cuando lo pulsamos.
-    
-    
-    
+//Cambiamos el sender a UIButton y le añadimos la función sender.shine, de esta forma haremos que brille cuando lo pulsamos.
 }
