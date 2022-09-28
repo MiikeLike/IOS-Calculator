@@ -35,8 +35,23 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var operatorsMulti: UIButton!
     @IBOutlet weak var operatorsDivision: UIButton!
     
+    //MARK: - Variables
+    private var total: Double = 0 //Con está variable almacenamos el resultado de la calculadora
+    private var temp: Double = 0 //Valor temporal, no corresponde con el total acumulado
+    private var operating = false //Nos indica si se ha seleccionado un operador
+    private var decimal = false //Indicamos si el valor es decimal
+    private var operation: operationType = .nome //Operación actual.
+    
+    //MARK: - Constantes
     
     
+    private let DecimalSeparator = Locale.current.decimalSeparator
+    private let KMaxLength = 9
+    private let KMaxValue: Double = 999999999
+    private let KMinValue: Double = 0.0000001
+    private enum operationType {
+        case nome, addiction, substraction, multiplication, division, percent
+    }
     
     
     //MARK: -Initialization
