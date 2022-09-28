@@ -25,7 +25,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var numberDecimal: UIButton!
     
     
-    //Operators
+    //MARK: - Operators
     @IBOutlet weak var operatorsAC: UIButton!
     @IBOutlet weak var operatorsMasMenos: UIButton!
     @IBOutlet weak var operatorsPorcen: UIButton!
@@ -39,7 +39,7 @@ final class HomeViewController: UIViewController {
     
     
     
-    //Initialization
+    //MARK: -Initialization
     init(){
         super.init(nibName: nil, bundle: nil)//La forma que tenemos de asociar un XIB ha un controlador Swift
     }
@@ -51,10 +51,10 @@ final class HomeViewController: UIViewController {
     
     
     
-    //Este es el ciclo de vida
+    //MARK: -Este es el ciclo de vida
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//MARK: - Añadimos el redondeo a los botones, siempre añadiendo la extensión del botón especificando dicho efecto
         number0.round()
         number1.round()
         number2.round()
@@ -72,43 +72,50 @@ final class HomeViewController: UIViewController {
         operatorsMulti.round()
         operatorsMenos.round()
         operatorsDivision.round()
-        //Revisa operatorsMasMenos.round()
+        operatorsMasMenos.round()
         operatorsPorcen.round()
         operatorsResult.round()
-    }
-//MARK - Button Actions
-    
-    @IBAction func operatorsAcAction(_ sender: Any) {
-    }
-    @IBAction func operatorsMasMenosAction(_ sender: Any) {
+        
+        
         
     }
-    @IBAction func operatorsPorcen(_ sender: Any) {
+//MARK: - Button Actions
+    
+    @IBAction func operatorsAcAction(_ sender: UIButton) {
+        sender.shine()
+    }
+    @IBAction func operatorsMasMenosAction(_ sender: UIButton) {
+        sender.shine()
+    }
+    
+    @IBAction func operatorsPorcen(_ sender: UIButton) {
+        sender.shine()
     }
 
-    @IBAction func operatorsResultAction(_ sender: Any) {
-        
+    @IBAction func operatorsResultAction(_ sender: UIButton) {
+        sender.shine()
     }
-    @IBAction func operatorsMasAction(_ sender: Any) {
-        
+    @IBAction func operatorsMasAction(_ sender: UIButton) {
+        sender.shine()
     }
-    @IBAction func operatorsMenosAction(_ sender: Any) {
-        
+    @IBAction func operatorsMenosAction(_ sender: UIButton) {
+        sender.shine()
     }
-    @IBAction func operatorsMultiAction(_ sender: Any) {
-        
+    @IBAction func operatorsMultiAction(_ sender: UIButton) {
+        sender.shine()
     }
-    @IBAction func operatorsDivisionAction(_ sender: Any) {
-        
+    @IBAction func operatorsDivisionAction(_ sender: UIButton) {
+        sender.shine()
     }
-    @IBAction func numberDecimalAction(_ sender: Any) {
+    @IBAction func numberDecimalAction(_ sender: UIButton) {
+        sender.shine()
     }
-    
     @IBAction func numberAction(_ sender: UIButton) {
-        print(sender.tag)
+        print(sender.tag)//cambiamos el sender  y le añadimos un print con .tag para que salga un tipo int
+        sender.shine()
     }
     
-    
+    //Cambiamos el sender a UIButton y le añadimos la función sender.shine, de esta forma haremos que brille cuando lo pulsamos.
     
     
     

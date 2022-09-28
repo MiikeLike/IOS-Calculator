@@ -25,7 +25,8 @@
                 <outlet property="operatorsAC" destination="2mG-eo-BeR" id="Zb2-cK-aKW"/>
                 <outlet property="operatorsDivision" destination="Q8m-x8-3Jc" id="14S-1m-xpS"/>
                 <outlet property="operatorsMas" destination="ZbS-Lg-UUO" id="SjJ-Vc-ehU"/>
-                <outlet property="operatorsMenos" destination="yEP-bO-axB" id="7rF-Jz-m0r"/>
+                <outlet property="operatorsMasMenos" destination="uTM-Eh-rCg" id="SPw-d4-UGy"/>
+                <outlet property="operatorsMenos" destination="yEP-bO-axB" id="Xhj-4P-bgI"/>
                 <outlet property="operatorsMulti" destination="kpl-S7-uqp" id="4Ej-Pa-5dz"/>
                 <outlet property="operatorsPorcen" destination="hgk-Pg-woV" id="GC4-OK-FwH"/>
                 <outlet property="operatorsResult" destination="Uog-6U-Ft4" id="ZkW-Rp-HmC"/>
@@ -78,7 +79,7 @@
                                         <color key="baseForegroundColor" systemColor="labelColor"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="operatorsMasMenosAction:" destination="-1" eventType="touchUpInside" id="bPU-7t-Jdx"/>
+                                        <action selector="operatorsMasMenosAction:" destination="-1" eventType="touchUpInside" id="U3J-T6-BQ6"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-Pg-woV">

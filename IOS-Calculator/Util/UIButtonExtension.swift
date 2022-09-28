@@ -13,12 +13,12 @@ extension UIButton{
            layer.cornerRadius = bounds.height / 2
            clipsToBounds = true
        }
-    // Brilla
+    // Brillar
         func shine() {
-            UIView.animate(withDuration: 0.1, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.alpha = 0.5
             }) { (completion) in
-                UIView.animate(withDuration: 0.1, animations: {
+                UIView.animate(withDuration: 0.2, animations: {
                     self.alpha = 1
                 })
             }
