@@ -52,7 +52,27 @@ final class HomeViewController: UIViewController {
     private enum operationType {
         case nome, addiction, substraction, multiplication, division, percent
     }
-    
+    //MARK: - Formateador de valor auxiliar
+    private let auxFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = ""
+        formatter.decimalSeparator = locale.decimalSeparator
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    //MARK: -Formateador de valores por pantalla por defecto
+    private let printFomatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = locale.groupingSeparator
+        formatter.decimalSeparator = locale.decimalSeparator
+        formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 9
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 8
+        return formatter
+    }()
     
     //MARK: -Initialization
     init(){
