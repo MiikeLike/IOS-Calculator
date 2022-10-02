@@ -10,8 +10,9 @@ import UIKit
 final class HomeViewController: UIViewController {
 //MARK: -Outles
     
-    //Numbers
+    //Result
     @IBOutlet weak var resultLabel: UILabel!
+    //Numbers
     @IBOutlet weak var number0: UIButton!
     @IBOutlet weak var number1: UIButton!
     @IBOutlet weak var number2: UIButton!
@@ -35,11 +36,12 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var operatorsMulti: UIButton!
     @IBOutlet weak var operatorsDivision: UIButton!
     
+    
     //MARK: - Variables
-    private var total: Double = 0 //Con está variable almacenamos el resultado de la calculadora
-    private var temp: Double = 0 //Valor temporal, no corresponde con el total acumulado
-    private var operating = false //Nos indica si se ha seleccionado un operador
-    private var decimal = false //Indicamos si el valor es decimal
+    private var total: Double = 0                //Con está variable almacenamos el resultado de la calculadora
+    private var temp: Double = 0                 //Valor temporal, no corresponde con el total acumulado
+    private var operating = false                //Nos indica si se ha seleccionado un operador
+    private var decimal = false                  //Indicamos si el valor es decimal
     private var operation: operationType = .nome //Operación actual.
     
     //MARK: - Constantes
@@ -112,23 +114,37 @@ final class HomeViewController: UIViewController {
         operatorsPorcen.round()
         operatorsResult.round()
         
-        
+        result()
         
     }
 //MARK: - Button Actions
     
     @IBAction func operatorsAcAction(_ sender: UIButton) {
+        
+        clear()
+        
         sender.shine()
     }
     @IBAction func operatorsMasMenosAction(_ sender: UIButton) {
+        
+        temp = temp * (-1)
+        resultLabel.text = printFomatter.string(from: NSNumber(value: temp))
         sender.shine()
     }
     
     @IBAction func operatorsPorcen(_ sender: UIButton) {
+        
+        operating = true
+        operation = .percent
+        result()
+        
         sender.shine()
     }
 
     @IBAction func operatorsResultAction(_ sender: UIButton) {
+        
+        result()
+        
         sender.shine()
     }
     @IBAction func operatorsMasAction(_ sender: UIButton) {
@@ -138,17 +154,80 @@ final class HomeViewController: UIViewController {
         sender.shine()
     }
     @IBAction func operatorsMultiAction(_ sender: UIButton) {
+        
+        result()
+        operating = true
+        operation = .multiplication
+        
         sender.shine()
     }
     @IBAction func operatorsDivisionAction(_ sender: UIButton) {
+        
+        result()
+        operating = true
+        operation = .division
+        
         sender.shine()
     }
     @IBAction func numberDecimalAction(_ sender: UIButton) {
+        
+        let currentTemp = auxFormatter.string(from: NSNumber(value: temp))
+        if !operating 
+        
         sender.shine()
     }
     @IBAction func numberAction(_ sender: UIButton) {
         print(sender.tag)//cambiamos el sender  y le añadimos un print con .tag para que salga un tipo int
-        sender.shine()
+        sender.shine()//Cambiamos el sender a UIButton y le añadimos la función sender.shine, de esta forma haremos que brille cuando lo pulsamos.
     }
-//Cambiamos el sender a UIButton y le añadimos la función sender.shine, de esta forma haremos que brille cuando lo pulsamos.
+    private func clear(){
+        operation = .nome
+        operatorsAC.setTitle("AC", for: .normal)
+        if temp == 0 {
+            temp = 0
+            resultLabel.text = "0"
+        }else{
+            total = 0
+        }
+    }
+    
+    //Obtiene el resultado final
+    
+    private func result() {
+        
+        switch operation {
+        case .nome:
+            //No hacemos nada
+            break
+        case .addiction:
+            //Suma
+            total = total + temp
+            break
+        case .substraction:
+            //Recta
+            total = total - temp
+            break
+        case .multiplication:
+            //Multiplicando
+            total = total * temp
+            break
+        case .division:
+            //División
+            total = total / temp
+            break
+        case .percent:
+            //Tanto por cien
+            total = total / 100
+            
+        }
+    }
+    //Formateo en pantalla
+    
+    if total ≤ kMaxValue || total ≥ kMinValue {
+        resultLabel.text = printFormatter.string(form: NSNumber(value: total))
+    
+    }
+    print("TOTAL: \(total)")
+    
 }
+
